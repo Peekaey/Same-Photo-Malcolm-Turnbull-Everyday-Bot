@@ -6,6 +6,7 @@
         <RootNamespace>Malcolm_Turnbull_Bot</RootNamespace>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
 
 </Project>

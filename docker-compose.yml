@@ -1,0 +1,6 @@
+﻿services:
+  malcolm-turnbull-bot:
+    image: malcolm-turnbull-bot
+    build:
+      context: .
+      dockerfile: Dockerfile
