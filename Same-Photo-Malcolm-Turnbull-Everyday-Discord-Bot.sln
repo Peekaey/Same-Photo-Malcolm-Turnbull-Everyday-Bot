@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Same-Photo-Malcolm-Turnbull-Everyday-Discord-Bot", "Same-Photo-Malcolm-Turnbull-Everyday-Discord-Bot.csproj", "{E209025C-8782-473C-891F-E295F6270573}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Same-Photo-Malcolm-Turnbull-Everyday-Discord-Bot", "src\Same-Photo-Malcolm-Turnbull-Everyday-Discord-Bot.csproj", "{E209025C-8782-473C-891F-E295F6270573}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
