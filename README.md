@@ -1,4 +1,4 @@
-# Same Photo Malcolm Turnbull Everyday Discord Bot
+# Same Photo Malcolm Turnbull Everyday Bot
 
 -------- 
 Posts the same photo of Malcolm Turnbull everyday. That's it. 
