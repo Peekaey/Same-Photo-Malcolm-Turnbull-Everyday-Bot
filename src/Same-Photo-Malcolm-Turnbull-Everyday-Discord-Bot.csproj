@@ -20,7 +20,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Content Include="..\Same-Photo-Malcolm-Turnbull-Everyday-Discord-Bot\src\Images\MalcolmTurnbull.jpg">
+        <Content Include="..\src\Images\MalcolmTurnbull.jpg">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
     </ItemGroup>

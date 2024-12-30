@@ -43,7 +43,7 @@ public class MalcolmImage : ApplicationCommandModule<SlashCommandContext>
                     Attachments = new List<AttachmentProperties> {attachment}
                 }));
             
-            
+            _logger.LogActionTraceFinish(Context, "ReturnMalcolmTurnbullPhoto");
         } catch (Exception error) {
             _logger.LogExceptionError(Context, "ReturnMalcolmTurnbullPhoto", error);
             await Context.Interaction.SendFollowupMessageAsync(new InteractionMessageProperties
