@@ -3,9 +3,9 @@ using NetCord.Services.ApplicationCommands;
 
 namespace Same_Photo_Malcolm_Turnbull_Everyday_Discord_Bot.Helpers;
 
-public static class ILoggerExtensions
+public static class LoggerExtensions
 {
-    public static async void LogActionTraceStart(this ILogger logger, SlashCommandContext context, string commandName)
+    public static void LogActionTraceStart(this ILogger logger, SlashCommandContext context, string commandName)
     {
         logger.LogTrace($"Start of command {commandName} with interactionId {context.Interaction} initiated by: {context.User} with username: {context.User.GlobalName} " +
                         $"in guild: {context.Guild.Id} with guildname: {context.Guild.Name} " + $"at: {context.Interaction.CreatedAt} ");
@@ -17,10 +17,16 @@ public static class ILoggerExtensions
                         $"in guild: {context.Guild.Id} with guildname: {context.Guild.Name} " + $"at: {context.Interaction.CreatedAt} ");
     }
 
-    public static void LogError(this ILogger logger, SlashCommandContext context, string commandName,
+    public static void LogExceptionError(this ILogger logger, SlashCommandContext context, string commandName,
         Exception exception)
     {
-        logger.LogError(exception, $"Error in command {commandName} with interactionId {context.Interaction.Id} initiated by: {context.User} with username: {context.User.GlobalName} " +
+        logger.LogCritical(exception, $"Exception error in command {commandName} with interactionId {context.Interaction.Id} initiated by: {context.User} with username: {context.User.GlobalName} " +
                                    $"in guild: {context.Guild.Id} with guildname: {context.Guild.Name} " + $"at: {context.Interaction.CreatedAt}. Reason: {exception.Message} StackTrace: {exception.StackTrace}");   
+    }
+    
+    public static void LogStringError(this ILogger logger, SlashCommandContext context, string commandName, string error)
+    {
+        logger.LogError($"Error in command {commandName} with interactionId {context.Interaction.Id} initiated by: {context.User} with username: {context.User.GlobalName} " +
+                                   $"in guild: {context.Guild.Id} with guildname: {context.Guild.Name} " + $"at: {context.Interaction.CreatedAt}. Reason: {error}");   
     }
 }
