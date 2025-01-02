@@ -1,3 +1,6 @@
+using System.Diagnostics;
+using System.Reflection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using NetCord;
 using NetCord.Rest;
@@ -9,11 +12,14 @@ namespace Same_Photo_Malcolm_Turnbull_Everyday_Discord_Bot.Commands;
 public class Ping: ApplicationCommandModule<SlashCommandContext>
 {
     private readonly ILogger<Ping> _logger;
+    private readonly ApplicationCommandService<SlashCommandContext> _commandService;
     
-    public Ping(ILogger<Ping> logger)
+    public Ping(ILogger<Ping> logger,  ApplicationCommandService<SlashCommandContext> commandService)
     {
         _logger = logger;
+        _commandService = commandService;
     }
+
     [SlashCommand("ping", "Returns latency")]
     public async Task ReturnPing()
     {

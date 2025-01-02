@@ -2,19 +2,21 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using Microsoft.Extensions.Logging;
 using NetCord;
+using NetCord.Gateway;
 using NetCord.JsonModels;
 using NetCord.Rest;
 using NetCord.Services.ApplicationCommands;
 using NetCord.Services.Commands;
 using Same_Photo_Malcolm_Turnbull_Everyday_Discord_Bot.Helpers;
+using Same_Photo_Malcolm_Turnbull_Everyday_Discord_Bot.Interfaces;
 
 namespace Same_Photo_Malcolm_Turnbull_Everyday_Discord_Bot.Commands;
 
-public class MalcolmImage : ApplicationCommandModule<SlashCommandContext>
+public class InteractionTurnbullImage : ApplicationCommandModule<SlashCommandContext>
 {
-    private readonly ILogger<MalcolmImage> _logger;
+    private readonly ILogger<InteractionTurnbullImage> _logger;
 
-    public MalcolmImage(ILogger<MalcolmImage> logger)
+    public InteractionTurnbullImage(ILogger<InteractionTurnbullImage> logger)
     {
         _logger = logger;
     }
@@ -28,7 +30,7 @@ public class MalcolmImage : ApplicationCommandModule<SlashCommandContext>
             
             _logger.LogActionTraceStart(Context, "ReturnMalcolmTurnbullPhoto");
             
-            var imagePath = Path.Combine(AppContext.BaseDirectory, "src", "Images", "MalcolmTurnbull.jpg");
+            var imagePath = Path.Combine(AppContext.BaseDirectory, "Images", "MalcolmTurnbull.jpg");
             if (!File.Exists(imagePath))
             {
                 throw new FileNotFoundException("Malcolm Turnbull Image Not Found", imagePath);
@@ -52,4 +54,6 @@ public class MalcolmImage : ApplicationCommandModule<SlashCommandContext>
             });
         }
     }
+
+
 }

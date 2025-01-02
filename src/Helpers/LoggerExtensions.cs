@@ -29,4 +29,9 @@ public static class LoggerExtensions
         logger.LogError($"Error in command {commandName} with interactionId {context.Interaction.Id} initiated by: {context.User} with username: {context.User.GlobalName} " +
                                    $"in guild: {context.Guild.Id} with guildname: {context.Guild.Name} " + $"at: {context.Interaction.CreatedAt}. Reason: {error}");   
     }
+    
+    public static void LogUnhandledError(this ILogger logger, string commandName, Exception error)
+    {
+        logger.LogError($"Unhandled error in command {commandName}. Reason: {error.Message} StackTrace: {error.StackTrace}");
+    }
 }
