@@ -11,11 +11,13 @@ public class BackendTurnbullImage : IBackendTurnbullImage
 {
     private readonly ILogger<BackendTurnbullImage> _logger;
     private readonly RestClient _restClient;
+    private readonly IPermissionHelper _permissionHelper;
     
-    public BackendTurnbullImage(ILogger<BackendTurnbullImage> logger, RestClient restClient)
+    public BackendTurnbullImage(ILogger<BackendTurnbullImage> logger, RestClient restClient, IPermissionHelper permissionHelper)
     {
         _logger = logger;
         _restClient = restClient;
+        _permissionHelper = permissionHelper;
     }
 
     
@@ -23,13 +25,12 @@ public class BackendTurnbullImage : IBackendTurnbullImage
     {
         try
         {
-            var channel = await _restClient.GetChannelAsync(channelId);
-            if (channel is not TextChannel)
+            var channel = await _permissionHelper.CanAccessChannel(channelId);
+            if (channel == null)
             {
-                throw new InvalidOperationException("Provided channelId is not a valid channel");
+                throw new InvalidOperationException("Unable to confirm access to channel when executing SendMalcolmTurnbullPhoto");
             }
-
-
+            
             var imagePath = Path.Combine(AppContext.BaseDirectory, "Images", "MalcolmTurnbull.jpg");
             if (!File.Exists(imagePath))
             {
