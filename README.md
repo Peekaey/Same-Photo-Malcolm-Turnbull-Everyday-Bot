@@ -8,7 +8,7 @@ Inspired from an old facebook page that did the same thing.
 ![malcolm turnbull](https://github.com/Peekaey/Same-Photo-Malcolm-Turnbull-Everyday-Bot/blob/master/src/Images/MalcolmTurnbull.jpg)
 
 ## About
-Discord bot as a [.NET Generic Host](https://learn.microsoft.com/en-us/dotnet/core/extensions/generic-host?tabs=appbuilder) using [Netcord](https://netcord.dev/) with docker support.  
+Discord bot using [Netcord](https://netcord.dev/) with docker support.  
 Has some unneeded commands as reference/examples but can be easily removed when needed.
 
 ## Building & Running through Docker
